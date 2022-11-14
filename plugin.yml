@@ -1,0 +1,96 @@
+name: QuantusCore
+version: 2.1
+main: cloud.stivenfocs.QuantusCore.Loader
+authors: [StivenFocs]
+softdepend: [Vault,PlaceholderAPI,HolographicDisplays]
+api-version: 1.17
+commands:
+  spawn:
+    description: "Spawn command"
+  top:
+    description: "Displays the top level players in the game"
+  tutorial:
+    description: "Go to the quick tutorial"
+  stats:
+    description: "Display yours or another player stats"
+  quantus:
+    description: "Admin command of the QuantusCore!"
+permissions:
+  quantus.user.ownflag.place:
+    default: true
+  quantus.user.ownflag.break:
+    default: true
+  quantus.user.otherflags.break:
+    default: true
+  quantus.user.stats:
+    default: true
+  quantus.user.stats.others:
+    default: op
+  quantus.user.spawncommand:
+    default: true
+  quantus.user.spawncommand.others:
+    default: op
+  quantus.user.top:
+    default: true
+
+  quantus.admin.help:
+    default: op
+  quantus.admin.reload:
+    default: op
+  quantus.admin.blockbreak:
+    default: op
+  quantus.admin.setspawn:
+    default: op
+  quantus.admin.setspectatorspawn:
+    default: op
+  quantus.admin.setplayerstat:
+    default: op
+  quantus.admin.addflagitem:
+    default: op
+  quantus.admin.gotoflag:
+    default: op
+  quantus.admin.breakflag:
+    default: op
+  quantus.admin.pos:
+    default: op
+  quantus.admin.addnoearnregion:
+    default: op
+
+  quantus.user.base:
+    children:
+      quantus.user.ownflag.place: true
+      quantus.user.ownflag.break: true
+      quantus.user.otherflags.break: true
+      quantus.user.stats: true
+      quantus.user.spawncommand: true
+      quantus.user.top: true
+
+  quantus.user.*:
+    children:
+      quantus.user.ownflag.place: true
+      quantus.user.ownflag.break: true
+      quantus.user.otherflags.break: true
+      quantus.user.stats: true
+      quantus.user.stats.others: true
+      quantus.user.spawncommand: true
+      quantus.user.spawncommand.others: true
+      quantus.user.top: true
+
+  quantus.admin.*:
+    children:
+      quantus.admin.help: true
+      quantus.admin.reload: true
+      quantus.admin.blockbreak: true
+      quantus.admin.setspawn: true
+      quantus.admin.setspectatorspawn: true
+      quantus.admin.setplayerstat: true
+      quantus.admin.addflagitem: true
+      quantus.admin.gotoflag: true
+      quantus.admin.breakflag: true
+      quantus.admin.pos: true
+      quantus.admin.addnoearnregion: true
+
+  quantus.*:
+    children:
+      quantus.user.*: true
+      quantus.admin.*: true
